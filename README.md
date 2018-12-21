@@ -1,0 +1,4 @@
+# zookeeper_config_center
+基于springboot zookeeper配置中心demo
+
+当前工程示例了redis配置
