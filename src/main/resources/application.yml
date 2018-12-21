@@ -1,0 +1,49 @@
+spring:
+  profiles: 
+    active: '@env@'
+  application:
+    name: zkexample
+  main:
+    show-banner: false
+  http:
+    multipart:
+      max-file-size: 2Mb
+      max-request-size: 2Mb
+  zookeeper:
+    conns: localhost:2181,localhost:2182,localhost:2183
+    session-timeout: 300
+    config:
+      mysql: /zkexample/config/mysql
+      redis: /zkexample/config/redis
+  redis:
+    config-type: 1
+    jedis-pool: null
+    cluster:
+      nodes: localhost:6379
+      max-redirects: 8
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/insurance?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false
+    username: root
+    password: 
+    initial-size: 10
+    min-idle: 10
+    max-active: 200
+    max-wait: 60000
+    time-between-eviction-runs-millis: 60000
+    min-evictable-idle-time-millis: 300000
+    validation-query: SELECT 1
+    test-while-idle: true
+    pool-prepared-statements: true
+    max-pool-prepared-statement-per-connection-size: 20
+    remove-abandoned: true
+    remove-abandoned-timeout: 1800
+    log-abandoned: true
+    connection-properties: null
+    filters: config, stat, wall
+server:
+  port: 8082
+  context-path: /
+  session-timeout: 30
+  tomcat:
+    uri-encoding: UTF-8
